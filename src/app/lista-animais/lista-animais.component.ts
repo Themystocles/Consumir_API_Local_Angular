@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimalsServerService } from '../animals-server.service';
 import { Animal } from './AnimalInterface';
+import { ResponseUsers, Usuarios } from './InterfaceUsers';
 
 @Component({
   selector: 'app-lista-animais',
@@ -9,11 +10,13 @@ import { Animal } from './AnimalInterface';
 })
 export class ListaAnimaisComponent implements OnInit {
   animais: Animal[] = []
+  users?: ResponseUsers
 
 
 
   constructor(public AnimalsServer: AnimalsServerService) {
-    this.getAnimals()
+    this.getAnimals(),
+      this.getUsers()
   }
 
   ngOnInit(): void {
@@ -21,6 +24,11 @@ export class ListaAnimaisComponent implements OnInit {
   getAnimals(): void {
 
     this.AnimalsServer.getAll().subscribe(a => this.animais = a)
+  }
+
+  getUsers(): void {
+    this.AnimalsServer.getall2().subscribe(u => this.users = u)
+
   }
 
 }

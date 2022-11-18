@@ -1,6 +1,15 @@
-<p>lista-animais works!</p>
+<h2>Lista de Animais gerada de uma API local com Angular</h2>
 <ul>
     <li *ngFor="let animal of animais">
         {{animal.name}}
+    </li>
+</ul>
+
+
+<h2>Lista de Usuários puxada de uma api</h2>
+
+<ul>
+    <li *ngFor="let Users of users?.data">
+        {{Users.first_name}}
     </li>
 </ul>
